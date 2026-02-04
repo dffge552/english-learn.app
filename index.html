@@ -10941,6 +10941,9 @@ ${studentText || '(未輸入)'}
 
   // ========== 設定相關 ==========
   function loadSavedSettings() {
+    console.log('📥 開始載入設定...');
+
+    // 1. 讀取等級選擇
     const saved = localStorage.getItem('selectedLevels');
     if (saved) {
       try {
@@ -10951,8 +10954,28 @@ ${studentText || '(未輸入)'}
         });
         updateSelection();
       } catch (e) {
-        console.error('載入設定失敗:', e);
+        console.error('載入等級設定失敗:', e);
       }
+    }
+
+    // 2. 讀取 AI 模式
+    currentAIMode = localStorage.getItem('aiMode') || 'fast';
+
+    // 3. 讀取 API Keys
+    GEMINI_API_KEY = localStorage.getItem('geminiApiKey') || '';
+    GROQ_API_KEY = localStorage.getItem('groqApiKey') || '';
+    OCR_SPACE_API_KEY = localStorage.getItem('ocrApiKey') || '';
+
+    // 4. 顯示載入結果
+    console.log('✅ 設定載入完成:');
+    console.log('  AI 模式:', currentAIMode);
+    console.log('  Gemini API:', GEMINI_API_KEY ? '✅ 已設定' : '❌ 未設定');
+    console.log('  Groq API:', GROQ_API_KEY ? '✅ 已設定' : '❌ 未設定');
+    console.log('  OCR API:', OCR_SPACE_API_KEY ? '✅ 已設定' : '❌ 未設定');
+
+    // 5. 應用 AI 模式設定（如果函數存在）
+    if (typeof handleAIModeChange === 'function') {
+      handleAIModeChange(currentAIMode);
     }
   }
 
