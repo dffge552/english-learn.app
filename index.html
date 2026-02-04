@@ -10939,7 +10939,6 @@ ${studentText || '(未輸入)'}
     }
   }
 
-  // ========== 設定相關 ==========
   function loadSavedSettings() {
     console.log('📥 開始載入設定...');
 
@@ -10964,7 +10963,7 @@ ${studentText || '(未輸入)'}
     // 3. 讀取 API Keys
     GEMINI_API_KEY = localStorage.getItem('geminiApiKey') || '';
     GROQ_API_KEY = localStorage.getItem('groqApiKey') || '';
-    OCR_SPACE_API_KEY = localStorage.getItem('ocrApiKey') || '';
+    OCR_SPACE_API_KEY = localStorage.getItem('ocrSpaceApiKey') || '';  // ✨ 改成 ocrSpaceApiKey
 
     // 4. 顯示載入結果
     console.log('✅ 設定載入完成:');
@@ -10973,7 +10972,7 @@ ${studentText || '(未輸入)'}
     console.log('  Groq API:', GROQ_API_KEY ? '✅ 已設定' : '❌ 未設定');
     console.log('  OCR API:', OCR_SPACE_API_KEY ? '✅ 已設定' : '❌ 未設定');
 
-    // 5. 應用 AI 模式設定（如果函數存在）
+    // 5. 應用 AI 模式設定
     if (typeof handleAIModeChange === 'function') {
       handleAIModeChange(currentAIMode);
     }
