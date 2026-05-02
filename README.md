@@ -80,3 +80,45 @@ cd english-writing-platform
 # 使用任意 HTTP 伺服器執行
 npx http-server .
 # 或使用 VS Code Live Server
+3️⃣ 設定 API Key（選擇性）
+點擊右上角 ⚙️ 設定
+
+選擇 智能模式 或 Gemini 模式
+
+貼上你的 API Key 並儲存
+
+即可使用 AI 寫作、翻譯、助教功能
+
+⚠️ 免費 API 額度有限，請合理使用（詳見平台內「使用說明」）
+
+📁 專案結構
+text
+/
+├── index.html                           # 主程式（完整前端）
+├── vocabulary-7000.json                 # 7000 單字庫
+├── vocabulary-all.json                  # 完整英文字典
+├── vocabulary-junior-high-2000.json     # 國中基礎 2000 單
+├── application process for API/         # API 申請流程圖
+│   ├── groq/
+│   ├── gemini/
+│   └── ocr.space/
+└── signature/                           # 創作者簽名（選用）
+💡 本專案為 純前端應用，無需後端伺服器，所有資料儲存於瀏覽器。
+
+📄 授權條款
+本專案採用 MIT License，歡迎自由使用、修改與散佈。
+
+🙏 致謝
+Groq 提供高效能 Llama API
+
+Google Gemini 提供免費 AI 模型
+
+OCR.space 提供免費 OCR 服務
+
+Tesseract.js 提供離線 OCR 支援
+
+👨‍💻 作者
+由 熱愛英文教育的開發者 獨立開發，歡迎提出 Issue 或 PR！
+
+🔗 專案網址：https://github.com/dffge552/english-writing-platform
+🌐 線上體驗：https://english-write-trainer.netlify.app/
